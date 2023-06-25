@@ -1,51 +1,56 @@
-import { useState } from "react"
 import { useReducer } from "react"
-import reactLogo from "./assets/react.svg"
 import "./App.css"
+import Form from "./components/Form";
 
+// function reducer(state: any, action: any) {
+//   console.log(state, action);
+//   switch (action.type) {
+//     case "INCREMENT":
+//       return { age: state.age + 1 }
+//     case "DECREMENT":
+//       return { age: state.age - 1 }
+//     case "TWOSTABLE":
+//       return { age: state.age * 2 }
+//     case "POWERN":
+//       return { age: state.age * state.age }
+//     case "DIVISION":
+//       return { age: state.age / 10 }
+//     default:
+//       throw new Error("Unknown action")
+//   }
+// }
 function App() {
-  const [count, setCount] = useState(0)
-  const [state, dispatch] = useReducer(reducer, { age: 10 })
-  function reducer(state: any, action: any) {
-    switch (action.type) {
-      case "increment":
-        return { age: state.age + 1 }
-      case "decrement":
-        return { age: state.age - 1 }
-      default:
-        throw new Error()
-    }
-  }
 
-  const handleIncrease = () => {
-    dispatch({ type: "increment" })
-  }
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+  // const [state, dispatch] = useReducer(reducer, { age: 10 })
+
+
+  // const handleIncrease = () => {
+  //   dispatch({ type: "INCREMENT" })
+  // }
+  // const handleDecrease = () => {
+  //   dispatch({ type: "DECREMENT" })
+  // }
+  // const handleTwosTable = () => {
+  //   dispatch({ type: "TWOSTABLE" })
+  // }
+  // const handlePower = () => {
+  //   dispatch({ type: "POWERN" })
+  // }
+  // const handleDivision = () => {
+  //   dispatch({ type: "DIVISION" })
+  // }
+  return (<>
+    {/* <div className="App">
       <h1>useReducer Practice</h1>
       <h1>Age is {state.age}</h1>
       <button onClick={handleIncrease}>Increase Age</button>
-      <div className="card">
-        <h1>{count}</h1>
-        <button onClick={() => setCount((count) => count + 1)}>Increase</button>
-        <br />
-        <br />
-        <button onClick={() => setCount((count) => count - 1)}>Decrease</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      {count ? <h1>Count is {count}</h1> : 0}
-      <p className="read-the-docs">Noman Dhoni</p>
-    </div>
+      <button onClick={handleDecrease}>Decrease Age</button>
+      <button onClick={handleTwosTable}>*2 Age</button>
+      <button onClick={handlePower}>*Age</button>
+      <button onClick={handleDivision}>/Age</button>
+    </div> */}
+    <Form />
+  </>
   )
 }
 
