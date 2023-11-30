@@ -1,25 +1,29 @@
 import { useReducer } from "react"
 function reducer(state: any, action: any) {
   switch (action.type) {
-    case 'INCREMENT_AGE': {
+    case "INCREMENT_AGE": {
       return {
         name: state.name,
-        age: state.age + 1
-      };
+        age: state.age + 1,
+      }
     }
   }
-  throw Error('Unknown Action');
+  throw Error("Unknown Action")
 }
 const Form = () => {
-  const [state, dispatch] = useReducer(reducer, { name: 'Taylor', age: 42 })
+  const [state, dispatch] = useReducer(reducer, {
+    age: 42,
+    name: "Noman Dhoni",
+  })
   const handleAgeIncrement = () => {
-    dispatch({ type: 'INCREMENT_AGE' })
+    dispatch({ type: "INCREMENT_AGE" })
   }
-  return (<>
-    <div>Form</div>
-    {state}
-    <button onClick={handleAgeIncrement}>Increment</button>
-  </>
+  return (
+    <>
+      <h1>Form</h1>
+      {state.age}
+      <button onClick={handleAgeIncrement}>Increment</button>
+    </>
   )
 }
 
