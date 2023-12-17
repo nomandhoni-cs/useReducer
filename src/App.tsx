@@ -2,6 +2,7 @@ import { useReducer } from "react"
 import "./App.css"
 import Form from "./components/Form"
 import { CountProvider } from "./provider/count-provider"
+import Counter from "./components/Counter"
 
 function reducer(
   state: { age: number },
@@ -54,6 +55,7 @@ function App() {
           <button onClick={handleDivision}>/Age</button>
         </div>
         <Form />
+        <Counter />
       </CountProvider>
     </>
   )

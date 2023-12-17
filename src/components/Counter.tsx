@@ -1,11 +1,13 @@
+import { useContext } from "react"
+import { CountContext } from "../provider/count-provider"
+import Controller from "./Controller"
 const Counter = () => {
+  const { count } = useContext(CountContext)
   return (
     <>
       <h1>useReducer Practice practice from Stack Learner</h1>
-      <h1>Age is {state.age}</h1>
-      <button onClick={handleIncrease}>Increase Count</button>
-      <button onClick={handleDecrease}>Decrease Count</button>
-      <button onClick={handleTwosTable}>Reset</button>
+      <h1>Current count is {count}</h1>
+      <Controller />
     </>
   )
 }
