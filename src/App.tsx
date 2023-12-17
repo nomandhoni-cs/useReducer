@@ -1,8 +1,12 @@
 import { useReducer } from "react"
 import "./App.css"
 import Form from "./components/Form"
+import { CountProvider } from "./provider/count-provider"
 
-function reducer(state: any, action: any) {
+function reducer(
+  state: { age: number },
+  action: { type: string }
+): { age: number } {
   console.log(state, action)
   switch (action.type) {
     case "INCREMENT":
@@ -39,16 +43,18 @@ function App() {
   }
   return (
     <>
-      <div className="App">
-        <h1>useReducer Practice</h1>
-        <h1>Age is {state.age}</h1>
-        <button onClick={handleIncrease}>Increase Age</button>
-        <button onClick={handleDecrease}>Decrease Age</button>
-        <button onClick={handleTwosTable}>*2 Age</button>
-        <button onClick={handlePower}>*Age</button>
-        <button onClick={handleDivision}>/Age</button>
-      </div>
-      <Form />
+      <CountProvider>
+        <div className="App">
+          <h1>useReducer Practice</h1>
+          <h1>Age is {state.age}</h1>
+          <button onClick={handleIncrease}>Increase Age</button>
+          <button onClick={handleDecrease}>Decrease Age</button>
+          <button onClick={handleTwosTable}>*2 Age</button>
+          <button onClick={handlePower}>*Age</button>
+          <button onClick={handleDivision}>/Age</button>
+        </div>
+        <Form />
+      </CountProvider>
     </>
   )
 }
