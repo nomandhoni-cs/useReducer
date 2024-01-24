@@ -20,6 +20,12 @@ function reducer(state: any, action: any) {
         age: 0,
       }
     }
+    case "CHANGE_NAME": {
+      return {
+        name: action.nextName,
+        age: state.age,
+      }
+    }
     default:
       return {
         name: state.name,
@@ -41,11 +47,15 @@ const Form = () => {
   const handleAgeReset = () => {
     dispatch({ type: "RESET_AGE" })
   }
+  const handleNameChange = (e) => {
+    dispatch({ type: "CHANGE_NAME", nextName: e.target.value })
+  }
   return (
     <>
       <h1>
         {state.age} of {state.name} years
       </h1>
+      <input value={state.name} onChange={handleNameChange} />
       <button onClick={handleAgeIncrement}>Increment</button>
       <button onClick={handleAgeDecrement}>Decrement</button>
       <button onClick={handleAgeReset}>Reset</button>
